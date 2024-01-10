@@ -19,14 +19,14 @@ jobs:
           platform: linux/amd64
           push-image: true
           region: '${AWS_REGION}'
-          repo: videosummarizer
+          repo: demo
           registry-id: AWS_ECR_REGISTRY_ID
           repo-scan-on-push: true
           tag: latest
 
   continuous-delivery:
     machine: true
-    resource_class: deep-learning-01/dl-ineuron
+    resource_class: bappy/test
     steps:
       - aws-cli/setup
 
@@ -36,11 +36,11 @@ jobs:
 
       - run:
           name: pull image from private repository
-          command: docker pull 566373416292.dkr.ecr.ap-south-1.amazonaws.com/videosummarizer:latest
+          command: docker pull 566373416292.dkr.ecr.ap-south-1.amazonaws.com/demo:latest
       
       - run:
           name: run image
-          command: docker run -d -p 5000:5000 566373416292.dkr.ecr.ap-south-1.amazonaws.com/videosummarizer:latest
+          command: docker run -d -p 5000:5000 566373416292.dkr.ecr.ap-south-1.amazonaws.com/demo:latest
 workflows:
   CICD:
     jobs:
