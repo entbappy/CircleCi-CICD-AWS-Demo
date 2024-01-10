@@ -93,6 +93,7 @@ sudo systemctl start circleci.service
 
 ## Add circleci to sudo group
 sudo usermod -aG docker circleci
+sudo usermod -a -G docker circleci
 newgrp docker
 
 
@@ -102,6 +103,7 @@ sudo systemctl status circleci.service
 
 ## Install AWS CLI
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
 unzip awscliv2.zip
 sudo ./aws/install
 sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
@@ -112,3 +114,4 @@ sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --u
 AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY
 AWS_REGION
+AWS_ECR_REGISTRY_ID
