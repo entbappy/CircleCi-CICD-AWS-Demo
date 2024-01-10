@@ -12,6 +12,7 @@ sudo sh get-docker.sh
 
 # Add cloud user to docker group
 sudo usermod -aG docker ubuntu
+sudo usermod -aG docker $USER
 newgrp docker
 
 
