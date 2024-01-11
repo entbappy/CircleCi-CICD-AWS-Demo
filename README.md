@@ -6,9 +6,9 @@ https://circleci.com/
 
 ## 2. Create IAM user for deployment
 
-	#with specific access
+	#Policy:
 
-	1. EC2 access : It is virtual machine
-
-	2. ECR: Elastic Container registry to save your docker image in aws
+	1. AmazonEC2ContainerRegistryFullAccess
+	
+	2. AmazonEC2FullAccess
 
